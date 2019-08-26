@@ -1,5 +1,8 @@
 from flask import Flask
 
+
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -8,7 +11,11 @@ def index():
 
 @app.route('/parse_url')
 def parse():
-    return 'Retrieving requested HTML content...'
+    return {"challenge":"3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P"}
+    # return 'Retrieving requested HTML content...'
+
+
+
 
 if __name__ == '__main__':
     app.run()
