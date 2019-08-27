@@ -46,11 +46,20 @@ def parse():
 		"image_url": "https://image.shutterstock.com/image-photo/funny-cat-ophthalmologist-appointmet-squinting-260nw-598805597.jpg",
 		"alt_text": "Example Image"
 	}
+
+    payload = {
+		"type": "section",
+		"text": {
+			"type": "mrkdwn",
+			"text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+		}
+	}
+    
     return jsonify(payload)
 
     # return 'Responding to slash command...'
     # return 'Retrieving requested HTML content...'
 
 
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()
