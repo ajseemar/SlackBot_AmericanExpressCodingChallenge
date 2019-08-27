@@ -2,6 +2,9 @@ from flask import Flask, request, jsonify, abort
 import os
 # from config import VERIFICATION_TOKEN as VT
 import pdb
+from bs4 import BeautifulSoup
+import requests
+import urllib
 
 app = Flask(__name__)
 
@@ -17,8 +20,49 @@ def parse():
     # if token != VT:
     #     print('invalid token')
     #     return
-    command = request.form.get('command', None)
-    text = request.form.get('text', None)
+    # command = request.form.get('command', None)
+    text = request.form.get('text', None).split(" ")
+    if text.length != 3:
+        image_url = "https://pbs.twimg.com/media/CuLpTqtWYAIiu1l.jpg"
+        attachments = [{"title": "", "image_url": image_url}]
+        payload = {
+            'response_type': 'in_channel',
+            'text': 'Please enter the command followed by: url html_tag class_or_id_attribute',
+            'attachments': attachments
+        }
+
+        return jsonify(payload)
+
+    website = text[0]
+    tag = text[1]
+    class_or_id = text[2].split("=")
+
+    # source = requests.get(website).text
+    source = urllib.request.urlopen(website)
+    soup = BeautifulSoup(source, 'lxml')
+
+    if class_or_id[0] == 'class':
+        element = soup.find(tag, class_=class_or_id[1])
+    else:
+        element = soup.find(tag, id=class_or_id[1])
+
+    if tag == 'img':
+        image_url = element.src
+        attachments = [{"title": "", "image_url": image_url}]
+        payload = {
+            'response_type': 'in_channel',
+            'text': '',
+            'attachments': attachments
+        }
+        return jsonify(payload)
+    else:
+        msg = element.text
+        payload = {
+            'response_type': 'in_channel',
+            'text': msg,
+        }
+        return jsonify(payload)
+
     # print("command: {}".format(command))
     # print("text: {}".format(text))
     # print()
@@ -48,15 +92,7 @@ def parse():
 	# 	"alt_text": "image1"
 	# }
 
-    image_url = "https://api.slack.com/img/blocks/bkb_template_images/beagle.png"
-    attachments = [{"title": "", "image_url": image_url}]
-
-    payload = {
-        'response_type': 'in_channel',
-        'text': '',
-        'attachments': attachments
-    }
-    return "{}: {}".format(command, text)
+    
 
     # return 'Responding to slash command...'
     # return 'Retrieving requested HTML content...'
