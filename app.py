@@ -46,7 +46,6 @@ def parse():
 		"image_url": "https://image.shutterstock.com/image-photo/funny-cat-ophthalmologist-appointmet-squinting-260nw-598805597.jpg",
 		"alt_text": "Example Image"
 	}
-    payload = {'text': 'DigitalOcean Slack slash command is successful!'}
     return jsonify(payload)
 
     # return 'Responding to slash command...'
