@@ -4,7 +4,7 @@ import os
 import pdb
 from bs4 import BeautifulSoup
 import requests
-import urllib
+import urllib.request
 
 app = Flask(__name__)
 
@@ -42,7 +42,6 @@ def parse():
     soup = BeautifulSoup(source, 'lxml')
 
     element = None
-    return tag
     if class_or_id[0] == 'class':
         element = soup.find(tag, class_=class_or_id[1])
     else:
@@ -50,6 +49,7 @@ def parse():
 
     if tag == 'img':
         image_url = element.src
+        return image_url
         attachments = [{"title": "", "image_url": image_url}]
         payload = {
             'response_type': 'in_channel',
