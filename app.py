@@ -42,7 +42,7 @@ def parse():
     soup = BeautifulSoup(source, 'lxml')
 
     element = None
-    
+    return tag
     if class_or_id[0] == 'class':
         element = soup.find(tag, class_=class_or_id[1])
     else:
