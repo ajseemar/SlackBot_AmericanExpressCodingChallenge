@@ -45,25 +45,28 @@ def parse():
     if class_or_id[0] == 'class':
         element = soup.find(tag, class_=class_or_id[1])
     else:
-        element = soup.find(tag, id=class_or_id[1])
+        element = soup.select("#{}".format(class_or_id[1]))
         return element['src']
 
-    if tag == 'img':
-        image_url = element['src']
-        attachments = [{"title": "", "image_url": image_url}]
-        payload = {
-            'response_type': 'in_channel',
-            'text': '',
-            'attachments': attachments
-        }
-        return jsonify(payload)
-    else:
-        msg = element.text
-        payload = {
-            'response_type': 'in_channel',
-            'text': msg,
-        }
-        return jsonify(payload)
+    # if tag == 'img':
+    image_url = element['src']
+    attachments = [{"title": "", "image_url": image_url}]
+    payload = {
+        'response_type': 'in_channel',
+        'text': '',
+        'attachments': attachments
+    }
+    return jsonify(payload)
+
+        
+        
+    # else:
+    #     msg = element.text
+    #     payload = {
+    #         'response_type': 'in_channel',
+    #         'text': msg,
+    #     }
+    #     return jsonify(payload)
 
     # print("command: {}".format(command))
     # print("text: {}".format(text))
