@@ -54,7 +54,7 @@ def parse():
         'text': '',
         'attachments': attachments
     }
-    return jsonify(payload)
+    return jsonify(request.form)
 
     # return 'Responding to slash command...'
     # return 'Retrieving requested HTML content...'
