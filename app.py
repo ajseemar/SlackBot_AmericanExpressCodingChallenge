@@ -37,20 +37,20 @@ def parse():
 	# }
 
     payload = {
-        'response_type': 'in_channel',
 		"type": "image",
 		"title": {
 			"type": "plain_text",
-			"text": "Example Image",
-			"emoji": True
+			"text": "image1",
+			"emoji": true
 		},
-		"image_url": "https://image.shutterstock.com/image-photo/funny-cat-ophthalmologist-appointmet-squinting-260nw-598805597.jpg",
-		"alt_text": "Example Image"
+		"image_url": "https://api.slack.com/img/blocks/bkb_template_images/beagle.png",
+		"alt_text": "image1"
 	}
-    payload = {
-        'response_type': 'in_channel',
-        'text': 'DigitalOcean Slack slash command is successful!'
-        }
+
+    # payload = {
+    #     'response_type': 'in_channel',
+    #     'text': 'DigitalOcean Slack slash command is successful!'
+    # }
     return jsonify(payload)
 
     # return 'Responding to slash command...'
