@@ -22,7 +22,7 @@ def parse():
     #     return
     # command = request.form.get('command', None)
     text = request.form.get('text', None).split(" ")
-    if text.length != 3:
+    if len(text) != 3:
         image_url = "https://pbs.twimg.com/media/CuLpTqtWYAIiu1l.jpg"
         attachments = [{"title": "", "image_url": image_url}]
         payload = {
