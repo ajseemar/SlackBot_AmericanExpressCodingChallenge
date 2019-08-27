@@ -44,7 +44,7 @@ def parse():
     if class_or_id[0] == 'class':
         element = soup.find(tag, class_=class_or_id[1])
     else:
-        element = soup.select("#{}".format(class_or_id[1]))
+        element = soup.select("#{}".format(class_or_id[1]))[0]
         return element['src']
 
     # if tag == 'img':
