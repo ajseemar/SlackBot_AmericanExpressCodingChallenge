@@ -41,7 +41,7 @@ def parse():
     source = urllib.request.urlopen(website)
     soup = BeautifulSoup(source, 'lxml')
 
-    element = None
+    # element = None
     if class_or_id[0] == 'class':
         element = soup.find(tag, class_=class_or_id[1])
     else:
@@ -49,7 +49,7 @@ def parse():
         return element['src']
 
     if tag == 'img':
-        image_url = element.src
+        image_url = element['src']
         attachments = [{"title": "", "image_url": image_url}]
         payload = {
             'response_type': 'in_channel',
