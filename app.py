@@ -46,10 +46,10 @@ def parse():
         element = soup.find(tag, class_=class_or_id[1])
     else:
         element = soup.find(tag, id=class_or_id[1])
+        return element['src']
 
     if tag == 'img':
         image_url = element.src
-        return image_url
         attachments = [{"title": "", "image_url": image_url}]
         payload = {
             'response_type': 'in_channel',
