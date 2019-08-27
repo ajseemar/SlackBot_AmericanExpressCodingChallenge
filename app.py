@@ -1,7 +1,4 @@
 from flask import Flask, request, jsonify, abort
-import os
-# from config import VERIFICATION_TOKEN as VT
-import pdb
 from bs4 import BeautifulSoup
 import urllib.request
 
