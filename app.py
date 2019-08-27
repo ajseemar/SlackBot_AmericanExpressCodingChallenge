@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
     return 'Hello World from Flask App'
 
-@app.route('/parse-bot', methods=["POST"])
+@app.route('/parse', methods=["POST"])
 def parse():
     token = request.form.get('token', None)  # TODO: validate the token
     print('token: {}'.format(token))
