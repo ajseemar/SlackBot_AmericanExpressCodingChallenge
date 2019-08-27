@@ -3,7 +3,6 @@ import os
 # from config import VERIFICATION_TOKEN as VT
 import pdb
 from bs4 import BeautifulSoup
-import requests
 import urllib.request
 
 app = Flask(__name__)
