@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, abort
 import os
-from config import VERIFICATION_TOKEN as VT
+# from config import VERIFICATION_TOKEN as VT
 import pdb
 
 app = Flask(__name__)
@@ -12,14 +12,15 @@ def index():
 @app.route('/parse-bot', methods=["POST"])
 def parse():
     token = request.form.get('token', None)  # TODO: validate the token
-    pdb.set_trace()
-    if token != VT:
-        print('invalid token')
-        return
+    print('token: {}'.format(token))
+    # pdb.set_trace()
+    # if token != VT:
+    #     print('invalid token')
+    #     return
     command = request.form.get('command', None)
     text = request.form.get('text', None)
-    print(command)
-    print(text)
+    print("command: {}".format(command))
+    print("text: {}".format(text))
     print()
     print(request.form)
     # return {
