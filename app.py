@@ -1,17 +1,14 @@
 from flask import Flask
 
-
-
-
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return 'Hello World from Flask App'
 
-@app.route('/parse_url')
+@app.route('/parse-bot')
 def parse():
-    return {"challenge":"3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P"}
+    return 'Responding to slash command...'
     # return 'Retrieving requested HTML content...'
 
 
