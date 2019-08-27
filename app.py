@@ -11,18 +11,18 @@ def index():
 
 @app.route('/parse', methods=["POST"])
 def parse():
-    token = request.form.get('token', None)  # TODO: validate the token
-    print('token: {}'.format(token))
+    # token = request.form.get('token', None)  # TODO: validate the token
+    # print('token: {}'.format(token))
     # pdb.set_trace()
     # if token != VT:
     #     print('invalid token')
     #     return
-    command = request.form.get('command', None)
-    text = request.form.get('text', None)
-    print("command: {}".format(command))
-    print("text: {}".format(text))
-    print()
-    print(request.form)
+    # command = request.form.get('command', None)
+    # text = request.form.get('text', None)
+    # print("command: {}".format(command))
+    # print("text: {}".format(text))
+    # print()
+    # print(request.form)
     # return {
 	# 	"type": "section",
 	# 	"text": {
@@ -38,16 +38,16 @@ def parse():
     image_url = "https://api.slack.com/img/blocks/bkb_template_images/beagle.png"
     attachments = [{"title": "", "image_url": image_url}]
     
-    payload = {
-		"type": "image",
-		"title": {
-			"type": "plain_text",
-			"text": "image1",
-			"emoji": True
-		},
-		"image_url": "https://api.slack.com/img/blocks/bkb_template_images/beagle.png",
-		"alt_text": "image1"
-	}
+    # payload = {
+	# 	"type": "image",
+	# 	"title": {
+	# 		"type": "plain_text",
+	# 		"text": "image1",
+	# 		"emoji": True
+	# 	},
+	# 	"image_url": "https://api.slack.com/img/blocks/bkb_template_images/beagle.png",
+	# 	"alt_text": "image1"
+	# }
 
     payload = {
         'response_type': 'in_channel',
