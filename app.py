@@ -36,7 +36,8 @@ def parse():
 	# 	}
 	# }
     image_url = "https://api.slack.com/img/blocks/bkb_template_images/beagle.png"
-    attachments = [{"title": "Test Image", "image_url": image_url}]
+    attachments = [{"title": "", "image_url": image_url}]
+    
     payload = {
 		"type": "image",
 		"title": {
@@ -50,7 +51,7 @@ def parse():
 
     payload = {
         'response_type': 'in_channel',
-        'text': 'DigitalOcean Slack slash command is successful!',
+        'text': '',
         'attachments': attachments
     }
     return jsonify(payload)
