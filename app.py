@@ -35,8 +35,7 @@ def parse():
 	# 		"alt_text": "palm tree"
 	# 	}
 	# }
-    image_url = "https://api.slack.com/img/blocks/bkb_template_images/beagle.png"
-    attachments = [{"title": "", "image_url": image_url}]
+    
     
     # payload = {
 	# 	"type": "image",
@@ -49,12 +48,15 @@ def parse():
 	# 	"alt_text": "image1"
 	# }
 
+    image_url = "https://api.slack.com/img/blocks/bkb_template_images/beagle.png"
+    attachments = [{"title": "", "image_url": image_url}]
+
     payload = {
         'response_type': 'in_channel',
         'text': '',
         'attachments': attachments
     }
-    return jsonify(request.form)
+    return request.form
 
     # return 'Responding to slash command...'
     # return 'Retrieving requested HTML content...'
