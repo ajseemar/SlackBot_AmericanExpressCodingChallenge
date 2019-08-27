@@ -35,13 +35,14 @@ def parse():
 	# 		"alt_text": "palm tree"
 	# 	}
 	# }
-
+    # image_url = "https://api.slack.com/img/blocks/bkb_template_images/beagle.png"
+    # attachments = [{"title": "Test Image", "image_url": image_url}]
     payload = {
 		"type": "image",
 		"title": {
 			"type": "plain_text",
 			"text": "image1",
-			"emoji": true
+			"emoji": True
 		},
 		"image_url": "https://api.slack.com/img/blocks/bkb_template_images/beagle.png",
 		"alt_text": "image1"
