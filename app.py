@@ -17,8 +17,8 @@ def parse():
     # if token != VT:
     #     print('invalid token')
     #     return
-    # command = request.form.get('command', None)
-    # text = request.form.get('text', None)
+    command = request.form.get('command', None)
+    text = request.form.get('text', None)
     # print("command: {}".format(command))
     # print("text: {}".format(text))
     # print()
@@ -56,7 +56,7 @@ def parse():
         'text': '',
         'attachments': attachments
     }
-    return request.form
+    return "{}: {}".format(command, text)
 
     # return 'Responding to slash command...'
     # return 'Retrieving requested HTML content...'
