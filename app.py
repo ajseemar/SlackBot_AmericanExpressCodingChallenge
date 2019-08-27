@@ -41,6 +41,8 @@ def parse():
     source = urllib.request.urlopen(website)
     soup = BeautifulSoup(source, 'lxml')
 
+    element = None
+    
     if class_or_id[0] == 'class':
         element = soup.find(tag, class_=class_or_id[1])
     else:
