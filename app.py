@@ -37,7 +37,7 @@ def parse():
 		"title": {
 			"type": "plain_text",
 			"text": "Example Image",
-			"emoji": true
+			"emoji": True
 		},
 		"image_url": "https://image.shutterstock.com/image-photo/funny-cat-ophthalmologist-appointmet-squinting-260nw-598805597.jpg",
 		"alt_text": "Example Image"
