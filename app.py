@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import os
 from config import VERIFICATION_TOKEN as VT
+import pdb
 
 app = Flask(__name__)
 
@@ -11,6 +12,7 @@ def index():
 @app.route('/parse-bot', methods=["POST"])
 def parse():
     token = request.form.get('token', None)  # TODO: validate the token
+    pdb.set_trace()
     if token != VT:
         print('invalid token')
         return
@@ -43,6 +45,7 @@ def parse():
 		"image_url": "https://image.shutterstock.com/image-photo/funny-cat-ophthalmologist-appointmet-squinting-260nw-598805597.jpg",
 		"alt_text": "Example Image"
 	}
+    payload = {'text': 'DigitalOcean Slack slash command is successful!'}
     return jsonify(payload)
 
     # return 'Responding to slash command...'
