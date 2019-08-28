@@ -5,7 +5,7 @@ To test the command live in action, join the workspace bot-devorg. I believe new
 
 To set up project directory extract repo to desired folder and:
 1. Create a new python virtual environment with the command 'virtualenv env' and activate by running 'env/scripts/activate'
-  - If virtualenv is not installed run 'pip install virtualenv'
+    - If virtualenv is not installed run 'pip install virtualenv'
 2. Install all project dependencies with 'pip install -r requirements.txt'
 3. To start local server, just run 'python app.py' in command line
 
