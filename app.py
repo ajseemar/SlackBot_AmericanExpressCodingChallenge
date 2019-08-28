@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, abort
 from bs4 import BeautifulSoup
-import urllib.request
+from urllib.request import urlopen
+from urllib.parse import urljoin
 
 app = Flask(__name__)
 
@@ -24,11 +25,11 @@ def parse():
 
         return jsonify(payload)
 
-    website = text[0]
+    url = text[0]
     tag = text[1]
     class_or_id = text[2].split("=")
 
-    source = urllib.request.urlopen(website)
+    source = urlopen(url)
     soup = BeautifulSoup(source, 'lxml')
 
     if class_or_id[0] == 'class':
@@ -36,7 +37,8 @@ def parse():
     else:
         element = soup.select("#{}".format(class_or_id[1]))[0]
 
-    image_url = element['src']
+    # image_url = element['src']
+    image_url = urljoin(url, element['src'])
     attachments = [{"title": "", "image_url": image_url}]
     payload = {
         'response_type': 'in_channel',
