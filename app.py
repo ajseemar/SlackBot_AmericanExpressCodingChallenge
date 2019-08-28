@@ -37,7 +37,10 @@ def parse():
     else:
         element = soup.select("#{}".format(class_or_id[1]))[0]
 
+    # handles img src's that are links
     # image_url = element['src']
+
+    # handles img src's that are links and relative paths
     image_url = urljoin(url, element['src'])
     attachments = [{"title": "", "image_url": image_url}]
     payload = {
