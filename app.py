@@ -35,7 +35,6 @@ def parse():
         element = soup.find(tag, class_=class_or_id[1])
     else:
         element = soup.select("#{}".format(class_or_id[1]))[0]
-        return element['src']
 
     image_url = element['src']
     attachments = [{"title": "", "image_url": image_url}]
